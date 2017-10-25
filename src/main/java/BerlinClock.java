@@ -16,9 +16,8 @@ public class BerlinClock {
     private static Logger logger = (Logger) LogManager.getLogger(BerlinClock.class);
 
     public String getBerlinClockTime(Calendar calendar) {
-        logger.info("This is my log4j2 message, calendar: " +calendar.getTime());
 
-        return getSeconds(calendar) +
+        String berlinClockTime = getSeconds(calendar) +
                 getHoursOrMinutes(FIVE_HOUR_LAMPS, calendar.get(Calendar.HOUR_OF_DAY) / 5) +
                 getHoursOrMinutes(ONE_HOUR_LAMPS, calendar.get(Calendar.HOUR_OF_DAY) % 5) +
                 getHoursOrMinutes(FIVE_MINUTE_LAMPS, calendar.get(Calendar.MINUTE) / 5)
@@ -28,6 +27,9 @@ public class BerlinClock {
                         .replace(LAMP_RED,
                                 LAMP_YELLOW);
 
+        logger.info("Real time: " + calendar.getTime() + " Berlin Clock" + berlinClockTime);
+
+        return berlinClockTime;
     }
 
     private String getSeconds(Calendar calendar) {
