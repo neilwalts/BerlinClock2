@@ -14,7 +14,7 @@ public class BerlinClockTimer {
 
     class BerlinClockTimerTask extends TimerTask {
         public void run() {
-            new BerlinClock(Calendar.getInstance()).getBerlinClockTime();
+            new BerlinClockConverter(Calendar.getInstance()).getBerlinClockTime();
         }
     }
 }
